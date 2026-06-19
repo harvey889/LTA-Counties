@@ -1,150 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LTA County Sponsorship — Package Explorer</title>
-    <style>
-        :root {
-            --primary: #002D62;
-            --secondary: #008080;
-            --accent: #E0FF00;
-            --dark: #1A1A1A;
-            --light: #F4F6F9;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .header {
-            background-color: var(--primary);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .header-logo {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        .header-text h1 {
-            margin: 0 0 10px 0;
-            font-size: 2rem;
-        }
-        .header-badge {
-            background-color: rgba(255,255,255,0.1);
-            padding: 10px 15px;
-            border-radius: 6px;
-            display: inline-block;
-            font-size: 0.9rem;
-            border-left: 4px solid var(--accent);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            border-top: 6px solid var(--primary);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .tier-headline {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .price {
-            font-size: 1.25rem;
-            color: var(--secondary);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .benefits-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .benefits-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #EDEFFF;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-        }
-        .benefits-list li::before {
-            content: "✓";
-            color: var(--secondary);
-            font-weight: bold;
-            margin-right: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LTA County Sponsorship — Package Explorer 2027</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;font-size:14px;background:#f4f5f7;color:#111;min-height:100vh}
+.header{background:linear-gradient(135deg,#1a3a6b 0%,#2d5fa6 100%);padding:24px 32px;display:flex;align-items:center;justify-content:between;gap:16px;flex-wrap:wrap;border-bottom:3px solid #e0ff00}
+.header-left{display:flex;align-items:center;gap:16px}
+.header-logo{width:44px;height:44px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.header-text h1{color:#fff;font-size:20px;font-weight:700;letter-spacing:-.3px}
+.header-text p{color:rgba(255,255,255,.7);font-size:13px;margin-top:2px}
+.header-badge{background:rgba(255,255,255,0.1);padding:8px 14px;border-radius:6px;font-size:12px;color:#fff;border-left:3px solid #e0ff00;max-width:400px}
+.header-branding{display:flex;gap:12px;align-items:center;margin-left:auto}
+.header-branding img{height:28px;opacity:0.9;object-fit:contain}
+.container{max-width:1100px;margin:0 auto;padding:24px 20px}
+.tabs{display:flex;gap:6px;margin-bottom:20px;border-bottom:1px solid #ddd;padding-bottom:10px;overflow-x:auto}
+.tab-btn{padding:8px 16px;border:none;background:none;font-size:14px;font-weight:600;color:#666;cursor:pointer;border-radius:6px;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{background:#e8eae0;color:#111}
+.tab-btn.active{background:#1a3a6b;color:#fff}
+.main-layout{display:grid;grid-template-columns:300px 1fr;gap:24px}
+@media(max-width:768px){.main-layout{grid-template-columns:1fr}}
+.sidebar{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);height:fit-content;border:1px solid #e4e6eb}
+.filter-section{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #eee}
+.filter-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.filter-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#666;margin-bottom:10px}
+.radio-group{display:flex;flex-direction:column;gap:8px}
+.radio-label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:500;color:#333}
+.radio-label input{width:16px;height:16px;accent-color:#1a3a6b}
+.results-header{font-size:14px;color:#555;margin-bottom:16px;font-weight:500}
+.cards-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.package-card{background:#fff;border-radius:10px;border:1px solid #e4e6eb;box-shadow:0 1px 3px rgba(0,0,0,0.05);overflow:hidden;transition:all .2s;position:relative}
+.package-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.card-top{padding:18px 24px;color:#fff;position:relative}
+.card-tag{position:absolute;top:18px;right:24px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,0.2)}
+.card-title{font-size:18px;font-weight:700;letter-spacing:-.2px;margin-bottom:4px}
+.card-price{font-size:15px;font-weight:600;opacity:.95}
+.card-body{padding:20px 24px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:16px}
+.feature-item{display:flex;gap:10px;align-items:flex-start}
+.feature-icon{color:#10b981;font-weight:700;font-size:14px;margin-top:1px}
+.feature-text{font-size:13px;color:#333;line-height:1.4}
+.feature-sub{font-size:11px;color:#666;margin-top:1px}
+</style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <div class="header-logo">🎾</div>
-        <div class="header-text">
-            <h1>LTA County Sponsorship — Package Explorer</h1>
-        </div>
-        <div class="header-badge"><strong>✓ Every tier guarantees</strong> Wimbledon &amp; Queen's hospitality tickets · National brand exposure</div>
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo">🎾</div>
+    <div class="header-text">
+      <h1>LTA County Sponsorship — Package Explorer 2027</h1>
+      <p>Interactive Asset Delivery & Strategic Tendering Architecture</p>
     </div>
-
-    <div class="grid">
-        <!-- Platinum Tier -->
-        <div class="card" style="border-top-color: #50C878;">
-            <div class="tier-headline">👑 Platinum Partner</div>
-            <div class="price">Main County Sponsor</div>
-            <ul class="benefits-list">
-                <li>Headline branding across all county tournaments</li>
-                <li>Premium Wimbledon & Queen's hospitality allocation</li>
-                <li>Exclusive digital & social media takeovers</li>
-                <li>Direct access to county player network & clubs</li>
-            </ul>
-        </div>
-
-        <!-- Gold Tier -->
-        <div class="card" style="border-top-color: #FFD700;">
-            <div class="tier-headline">🥇 Gold Partner</div>
-            <div class="price">Core County Supporter</div>
-            <ul class="benefits-list">
-                <li>Prominent logo placement on all county apparel</li>
-                <li>Wimbledon & Queen's tournament tickets</li>
-                <li>Featured branding on monthly newsletters</li>
-                <li>Banners at main county final events</li>
-            </ul>
-        </div>
-
-        <!-- Silver Tier -->
-        <div class="card" style="border-top-color: #C0C0C0;">
-            <div class="tier-headline">🥈 Silver Partner</div>
-            <div class="price">Community Sponsor</div>
-            <ul class="benefits-list">
-                <li>Logo listed on official LTA County website</li>
-                <li>Access to ballot for major tournament tickets</li>
-                <li>Group marketing feature once per season</li>
-                <li>Invitation to annual county awards dinner</li>
-            </ul>
-        </div>
-    </div>
+  </div>
+  <div class="header-badge">
+    <strong>✓ Every tier guarantees:</strong> Wimbledon &amp; Queen's hospitality tickets · National brand exposure · Direct club integration
+  </div>
+  <div class="header-branding">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAcCAMAAACpSxzYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////1a6u6b3R3gAAAAF0Uk5TAEDm2GYAAAArSURAMVTLvYaxEAQAMATD+dfey6G7wSgSkeorqmZf9mUv9mIv9mIv9mIv9mIfNisA8Y9Mog8AAAAASUVORK5CYII=" alt="Rocket Sports Logo">
+  </div>
 </div>
+
+<div class="container">
+  <div class="tabs" id="tabContainer"></div>
+  
+  <div class="main-layout">
+    <div class="sidebar">
+      <div class="filter-section">
+        <div class="filter-title">Investment Profile</div>
+        <div class="radio-group" id="budgetFilters">
+          <label class="radio-label"><input type="radio" name="budget" value="all" checked> All Tiers</label>
+          <label class="radio-label"><input type="radio" name="budget" value="premium"> Premium (€15k+)</label>
+          <label class="radio-label"><input type="radio" name="budget" value="growth"> Development (€5k - €15k)</label>
+          <label class="radio-label"><input type="radio" name="budget" value="entry"> Entry Level (&lt; €5k)</label>
+        </div>
+      </div>
+      
+      <div class="filter-section">
+        <div class="filter-title">Core Asset Focus</div>
+        <div class="radio-group" id="assetFilters">
+          <label class="radio-label"><input type="radio" name="asset" value="all" checked> All Benefits</label>
+          <label class="radio-label"><input type="radio" name="asset" value="hospitality"> Premium Hospitality</label>
+          <label class="radio-label"><input type="radio" name="asset" value="branding"> Maximum Branding</label>
+          <label class="radio-label"><input type="radio" name="asset" value="digital"> Digital &amp; Activation</label>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="results-header" id="resultsCount">Loading configurations...</div>
+      <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = {
+  categories: [
+    { id: 'all', label: 'All Packages' },
+    { id: 'title', label: 'Title & Principal' },
+    { id: 'county', label: 'County Squads' },
+    { id: 'events', label: 'Leagues & Events' },
+    { id: 'pathway', label: 'Development Pathway' }
+  ],
+  packages: [
+    {
+      id: 'p1', cat: 'title', title: 'Main County Title Sponsor', price: '£25,000 / year', tag: 'Principal Tier', bg: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', tb: '#e2e8f0', tt: '#0f172a', bGroup: 'premium', ownership: true, hsbcAnd: true, full: true,
+      features: [
+        { text: 'Complete naming rights to the entire County LTA system', sub: 'e.g., "The [Your Brand] County Championships"' },
+        { text: '4x VIP Centre Court Hospitality tickets for Wimbledon & Queen\'s', sub: 'Guaranteed peak summer placement' },
+        { text: 'Primary logo branding on all official county apparel', sub: 'Worn by 14+ representative county teams' },
+        { text: 'Exclusive homepage and app branding takeover', sub: '100% share-of-voice across all digital platforms' }
+      ],
+      warnings: ['Requires minimum 2-year commitment framework. Subject to LTA national restrictions.']
+    },
+    {
+      id: 'p2', cat: 'county', title: 'County Senior Squad Partner', price: '£12,000 / year', tag: 'Elite Performance', bg: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)', tb: '#dbeafe', tt: '#1e3a8a', bGroup: 'growth', ownership: true, hsbcAnd: true, full: false,
+      features: [
+        { text: 'Exclusive branding on all Men\'s & Women\'s performance kit', sub: 'Sleeves and warm-up tracksuits' },
+        { text: '2x Premium Tickets to Queen\'s Club Hospitality', sub: 'Includes lunch and courtside access' },
+        { text: 'Dedicated digital content series tracking squad progress', sub: 'Shared to 15,000+ local members' }
+      ],
+      warnings: ['Kit manufacturing lead times require agreement signature by October.']
+    },
+    {
+      id: 'p3', cat: 'events', title: 'Summer League Headline Sponsor', price: '£7,500 / year', tag: 'Mass Activation', bg: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)', tb: '#ccfbf1', tt: '#0d9488', bGroup: 'growth', ownership: false, hsbcAnd: false, full: true,
+      features: [
+        { text: 'Title sponsorship of the regional multi-division summer leagues', sub: 'Reaching 80+ active clubs weekly' },
+        { text: '2x General Court tickets to Wimbledon tournament', sub: 'Prime booking window' },
+        { text: 'Physical banner placement at all playoff finals events', sub: 'High local community engagement' }
+      ],
+      warnings: []
+    },
+    {
+      id: 'p4', cat: 'pathway', title: 'Junior Talent Pathway Partner', price: '£4,500 / year', tag: 'Grassroots', bg: 'linear-gradient(135deg, #b45309 0%, #f59e0b 100%)', tb: '#fef3c7', tt: '#b45309', bGroup: 'entry', ownership: true, hsbcAnd: false, full: false,
+      features: [
+        { text: 'Supporting underprivileged development coaching grants', sub: 'Strong corporate social responsibility points' },
+        { text: 'Logo on official pathway certificates and digital badges', sub: 'Distributed directly to over 3,000 families' },
+        { text: 'Invitation to present awards at the Annual County Gala', sub: 'Excellent brand reputation booster' }
+      ],
+      warnings: []
+    }
+  ]
+};
+
+let currentCat = 'all';
+let currentBudget = 'all';
+let currentAsset = 'all';
+
+function renderTabs() {
+  const container = document.getElementById('tabContainer');
+  container.innerHTML = DATA.categories.map(c => `
+    <button class="tab-btn ${c.id === currentCat ? 'active' : ''}" onclick="setCategory('${c.id}')">${c.label}</button>
+  `).join('');
+}
+
+function setCategory(id) {
+  currentCat = id;
+  renderTabs();
+  renderCards();
+}
+
+function initFilters() {
+  document.getElementById('budgetFilters').addEventListener('change', (e) => {
+    currentBudget = e.target.value;
+    renderCards();
+  });
+  document.getElementById('assetFilters').addEventListener('change', (e) => {
+    currentAsset = e.target.value;
+    renderCards();
+  });
+}
+
+function renderCards() {
+  const grid = document.getElementById('cardsGrid');
+  
+  const filtered = DATA.packages.filter(p => {
+    if (currentCat !== 'all' && p.cat !== currentCat) return false;
+    if (currentBudget !== 'all' && p.bGroup !== currentBudget) return false;
+    
+    if (currentAsset !== 'all') {
+      if (currentAsset === 'hospitality' && !p.features.some(f => f.text.toLowerCase().includes('wimbledon') || f.text.toLowerCase().includes('queen'))) return false;
+      if (currentAsset === 'branding' && !p.features.some(f => f.text.toLowerCase().includes('branding') || f.text.toLowerCase().includes('logo'))) return false;
+      if (currentAsset === 'digital' && !p.features.some(f => f.text.toLowerCase().includes('digital') || f.text.toLowerCase().includes('app'))) return false;
+    }
+    return true;
+  });
+
+  document.getElementById('resultsCount').innerText = `${filtered.length} Active Package Configuration${filtered.length === 1 ? '' : 's'} Found`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#666;background:#fff;border-radius:10px;border:1px dashed #ccc;">No package configurations match your exact filter criteria. Try adjusting your filters.</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => `
+    <div class="package-card">
+      <div class="card-top" style="background: ${p.bg}">
+        <span class="card-tag">${p.tag}</span>
+        <div class="card-title">${p.title}</div>
+        <div class="card-price">${p.price}</div>
+      </div>
+      <div class="card-body">
+        <div class="features-grid">
+          ${p.features.map(f => `
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <div>
+                <div class="feature-text">${f.text}</div>
+                <div class="feature-sub">${f.sub}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        ${p.warnings.length ? `
+          <div style="background:#fff8f0;border-radius:7px;padding:10px 14px;margin-top:14px;border-left:3px solid #f59e0b">
+            <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:2px">⚠️ Logistics &amp; Lead Times:</div>
+            ${p.warnings.map(w => `<div style="font-size:11px;color:#92400e;line-height:1.4">${w}</div>`).join('')}
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+// Kickstart application
+renderTabs();
+initFilters();
+renderCards();
+</script>
 
 </body>
 </html>
